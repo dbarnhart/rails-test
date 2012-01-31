@@ -1,6 +1,10 @@
 RailsTest::Application.routes.draw do
-  root :to => 'static_pages#show', :page => 'home'
+  get "users/new"
+
+  match '/signup', to: 'users#new'
   match ':page' => 'static_pages#show', :via => :get, :page => /home|about|help|contact/, :as => "page"
+
+  root :to => 'static_pages#show', :page => 'home'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
